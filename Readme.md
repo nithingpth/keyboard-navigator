@@ -5,3 +5,7 @@ Keyboard Navigator provides navigation strategy on using Tab key and Arrow Keys.
 
 Web Applications developed using frontend libraries tend to update DOM frequently through template bindings, such applications tend to loose focus if DOM updates. Keyboard Navigator provides a strategy to persist focus in such scenarios by exploiting the XPath reference to elements.
 
+Keyboard Navigator is available as a Node Package
+```javascript
+npm install keyboard-navigator
+``` 
