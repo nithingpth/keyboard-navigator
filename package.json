@@ -1,14 +1,14 @@
 {
   "name": "keyboard-navigator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A configurable javascript library for navigating through web applications using keyboard. Also works for dynamic frontend web applications where DOM updates are frequent",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/nithingpth/keyboard-navigator"
+    "type": "git",
+    "url": "https://github.com/nithingpth/keyboard-navigator"
   },
   "keywords": [
     "ally",
