@@ -18,8 +18,14 @@ or can use the below CDN link.
 Navigation can be contained inside desired element or set it on window by calling this setNavigationOnContainingElement function.
 Calling also this function starts listening on target element.
 ```javascript
-keyBoardNavigator.setNavigationOnContainingElement(targetElementID)
+keyBoardNavigator.setNavigationOnContainingElement("targetElementID")
 ```
 calling setNavigationOnContainingElement without parameter sets navigation on `window` object
+
+Navigation can be paused by setting
+```javascript
+keyBoardNavigator.pause = true
+```
+the same can be used to resume
 
 
