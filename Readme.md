@@ -28,4 +28,34 @@ keyBoardNavigator.pause = true
 ```
 the same can be used to resume
 
+## Tabbing
+General Tabbing order would be the HTML Source code order of tabbable elements which can be altered by setting tabindex attribute, but it might get complex.
+
+Keyboard Navigator doesnot suggest/provide any tabbing order, but can be configured to follow tabbing order by passing array of HTML elements in desired order or the developer can opt for a custom tabbing logic. It is better to have custom tabbing logic to satisfy your needs.
+Developer can input the list of HTML elements in order to make it the default tabbing logic/order of Keyboard Navigator(meaning tabbing through elements in the order that the developer inputs)
+
+Keyboard Navigator by default assumes that developer opted for custom tabbing logic.
+default HTML source code tabbing order is also considered custom tabbing logic in such case no need to configure anything in KeyBoardNavigator for tabbing.
+```javascript
+keyBoardNavigator.customTabLogic = true;
+```
+but if developer has a tabbing logic and wants to integrate it with Keyboard Navigator then set
+```javascript
+keyBoardNavigator.customTabLogic = function(keyBoardNavigatorScope, event){
+    // Your Custom Tabbing Logic
+    // event(passed from event listener)
+    // ...
+};
+```
+also if the developer doesnot want any complex tabbing logic but need to implement custom tabbing order that Keyboard Navigator has to follow, then set
+```javascript
+//this informs Keyboard Navigator to follow default tabbing logic i.e tabbing through the array of elements that the developer gave
+keyBoardNavigator.customTabLogic = false      
+
+keyBoardNavigator.listOfTabbingElementsInOrder = [Array of HTML Elements in custom order];
+};
+```
+
+
+
 
