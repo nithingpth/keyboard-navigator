@@ -32,7 +32,7 @@ the same can be used to resume
 General Tabbing order would be the HTML Source code order of tabbable elements which can be altered by setting tabindex attribute, but it might get complex.
 
 Keyboard Navigator doesnot suggest/provide any tabbing order, but can be configured to follow tabbing order by passing array of HTML elements in desired order or the developer can opt for a custom tabbing logic. It is better to have custom tabbing logic to satisfy your needs.
-Developer can input the list of HTML elements in order to make it the default tabbing logic/order of Keyboard Navigator(meaning tabbing through elements in the order that the developer inputs)
+Developer can input the list of HTML elements in custom order to make it the default tabbing logic/order of Keyboard Navigator(meaning tabbing through elements in the order that the developer inputs).
 
 Keyboard Navigator by default assumes that developer opted for custom tabbing logic.
 default HTML source code tabbing order is also considered custom tabbing logic in such case no need to configure anything in KeyBoardNavigator for tabbing.
@@ -53,8 +53,52 @@ also if the developer doesnot want any complex tabbing logic but need to impleme
 keyBoardNavigator.customTabLogic = false      
 
 keyBoardNavigator.listOfTabbingElementsInOrder = [Array of HTML Elements in custom order];
-};
+// this makes Keyboard Navigator to follow this order in Tabbing
 ```
+
+in few cases if Developer has to stop tabbing through Elements that was passed to Keyboard Navigator as above then set 
+```javascript
+keyBoardNavigator.additionalCustomTabLogic = function(keyBoardNavigatorScope, event){
+    // in this function Developer can have few checks and return true/false which decides if the tabbing on listOfTabbingElementsInOrder must be done or not.
+}
+```
+Trapping Focus in Modals:
+if Developer needs to trap focus in modals, then the containing element of modal must be given a class name: `kbn-modal`
+and set:
+```javascript
+keyBoardNavigator.customModalFocusTrapLogic == false
+```
+Keyboard Navigatore defaults `customModalFocusTrapLogic = true`
+so if the modal shows up, Keyboard Navigator traps focus inside modal
+
+but if developer needs to implement custom focus trap logic inside modals and replace Keyboard Navigator's modal focus trap logic then set:
+```javascript
+keyBoardNavigator.customModalFocusTrapLogic == function(keyBoardNavigatorScope, event){
+    // your custom modal focus trapping logic goes here
+}
+```
+
+Tabbing logical flow(refer source code if not clear):
+```javascript
+if(this.customTabLogic == false){  //if no custom tab logic
+    var executeDefaultTabbingLogic = true;
+    executeDefaultTabbingLogic = this.additionalCustomTabLogic.call(this,event);
+    if(executeDefaultTabbingLogic && this.listOfTabbingElementsInOrder){
+        // tabs through elements in given order
+    }    
+}
+else if(typeof(this.customTabLogic) == "function"){ //if developer has custom logic
+    this.customTabLogic.call(this,event)
+}
+
+if(this.customModalFocusTrapLogic == false){
+    // Default modal focus trap logic will be executed 
+}
+else if(typeof(this.customModalFocusTrapLogic) == "function"){ //if developer has custom logic
+    this.customModalFocusTrapLogic.call(this,event)
+}
+```
+
 
 
 
