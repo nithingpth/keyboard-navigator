@@ -119,13 +119,13 @@ once the focus gets onto any of the similar elements, user can move in any direc
 
 So developer must ensure the following to implement arrow navigation  
 - Containing/Triggering Element must be tabindexed (tabindex = 0) and must be given a class name by developer
-- all similar elements that must be navigable by arrow must be tabindexed (tabindex = -1) and must be given a class name by developer  
+- all similar elements that must be navigable by arrow must be tabindexed (tabindex = -1) and must be given a class name by developer, generally these type of elements are rendered in framework specific for loop, setting tabindex on template will carryforward to all elements rendered by that loop.
   this step can be skipped if you set  
   ```javascript
   //by default this is false
   keyBoardNavigator.setAutomaticTabIndexOnArrowNavigableElements = true
   ```
-  this sets tabindex="-1" for all arrowNavigableElements/similar elements
+  this sets tabindex="-1" on all arrowNavigableElements/similar elements
 - and add the (Containing/Triggering Element, options/similar elements/arrow navigable elements) pair to Keyboard Navigator(as shown below)
 ```javascript
 keyBoardNavigator.arrowKeyNavigationConfig.push({
