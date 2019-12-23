@@ -200,7 +200,7 @@ this will ensure to execute only programatic clicks.
 
 Enter Listener Flow:
 ```javascript
-if(event.keyCode == this.keys["enter"] && this.listenOnEnterKey){
+if(this.listenOnEnterKey){
     if(this.useDefaultFallbackFocusLogic){
         //default fallback focus logic gets executed
     }
