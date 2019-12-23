@@ -163,5 +163,31 @@ function updatePrducts(newData){
 ```
 this function stores the Xpath of active element before DOM update, and Asynchronously focuses the same element after DOM update using the same Xpath.  
 
+2)User clicking on element(pressing enter)
+Developer can opt out of this step so that Keyboard Navigator doesnot handle enter clicks by setting
+```javascript
+// default listenOnEnterKey = true
+keyBoardNavigator.listenOnEnterKey = false
+```
+Keyboard Navigator provides a strategy for handling such case where elements get removed/disappeared from DOM.  
+Developers can have their own strategy and can integrate it with Keyboard Navigator by setting:  
+```javascript
+// default useDefaultFallbackFocusLogic = true
+keyBoardNavigator.useDefaultFallbackFocusLogic = false
+keyBoardNavigator.customFallbackFocusLogic = function(keyBoardNavigatorScope,event){
+    //your own implementation
+}
+```
+**Default strategy that Keboard Navigator provides:**
+Keyboard Navigator keeps track of fallback focus elements in a queue(first in first out) when user clicks enter key on elements.  
+Fallback focus elements are those elements to be focused when their child elements are being clicked(pressing enter key) as a result that child element gets disapeard/removed from DOM.
+Keyboard Navigator before executing click on element via script, queries and stores the Parent Fallback Focus Element to the current element if any into a Fallback Focus Elements queue.  
+Keyboard Navigator checks if the clicked(enter key pressed) element still exists on DOM, not by node reference but by Xpath reference, if that element doesnot exists on DOM, then it focuses the Fallback Focus Element that is fetched from Fallback Focus Elements queue which satisfy below conditions:  
+1)recently added Falback elements are given priority.  
+2)Falback elements must exist on DOM which is checked by Xpath reference.  
+
+
+
+
 
 
