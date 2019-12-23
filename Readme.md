@@ -185,6 +185,7 @@ Keyboard Navigator before executing click on element via script, queries and sto
 Keyboard Navigator checks if the clicked(enter key pressed) element still exists on DOM after click is executed, not by node reference but by Xpath reference, if that element doesnot exists on DOM, then it focuses the `Fallback Focus Element` that is fetched from `Fallback Focus Elements queue` which satisfy below conditions:  
 1)recently added Falback elements are given priority.  
 2)Falback elements must exist on DOM, which is ensured by checking if DOM contains any element matching the Xpath reference.  
+<img src="/images/enter click.png" alt="clicking enter"/>
 
 
 
