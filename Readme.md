@@ -108,5 +108,27 @@ In such custom implementaions navigation must be manually handled, if those comp
 Keyboard Navigator provides a strategy to navigate among such elements by comparing the coordinates of next directional element with active element.
 Arrow key navigation can be triggered from:  
 1)Containing Element/Triggering Element  
-2)Active Element(which is one of similar elements)  
+2)Active Element which is one of similar elements  
 <img src="/images/arrow_containing_or_triggering.png" alt="Examples where arrow keys are used"/>
+
+Containing Element/Triggering Element:  
+User will be reaching the containing or triggering element by tabbing through preevious tabbable elements, now on press of arrow keys, Keyboard Navigator shifts the focus to  first option/block(first element among all similar element).  
+Also developer can constrain the listener to only listen on particular arrow keys.  
+
+once the focus gets onto any of the similar elements, user can move in any direction that the developer sets on these elements too.  
+
+So developer must ensure the following to implement arrow navigation  
+- Containing/Triggering Element must be tabindexed (tabindex = 0) and must be given a class name by developer
+- all similar elements that must be navigable by arrow must be tabindexed (tabindex = -1) and must be given a class name by developer
+- and add the (Containing/Triggering Element, options/similar elements/arrow navigable elements) pair to Keyboard Navigator(as shown below)
+```javascript
+keyBoardNavigator.arrowKeyNavigationConfig.push({
+    "containingOrTriggeringElementClass" : "arrowTrigger",
+    "containingOrTriggeringElementArrowKeys" : [this.keys["up"],this.keys["down"]],
+    "arrowNavigableElementClass" : "arrowNavigableElement",
+    "arrowNavigableElementArrowKeys" : [this.keys["up"],this.keys["down"],this.keys["left"],this.keys["right"]],
+    "additionalFilterOnArrowNavigableElements" : function(arr) {return arr} 
+})
+```
+<img src="/images/arrow_config_explaination.jpg" alt="arrow config details"/>
+
