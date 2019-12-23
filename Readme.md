@@ -119,8 +119,8 @@ once the focus gets onto any of the similar elements, user can move in any direc
 
 So developer must ensure the following to implement arrow navigation  
 - Containing/Triggering Element must be tabindexed (tabindex = 0) and must be given a class name by developer
-- all similar elements that must be navigable by arrow must be tabindexed (tabindex = -1) and must be given a class name by developer, generally these type of elements are rendered in framework specific for loop, setting tabindex on template will carryforward to all elements rendered by that loop.
-  this step can be skipped if you set  
+- all similar elements that must be navigable by arrow must be tabindexed (tabindex = -1) and must be given a class name by developer, generally these type of elements are rendered in framework specific for loop, setting tabindex on template will carryforward to all elements rendered by that loop.  
+  This step can be skipped if you set  
   ```javascript
   //by default this is false
   keyBoardNavigator.setAutomaticTabIndexOnArrowNavigableElements = true
@@ -137,4 +137,31 @@ keyBoardNavigator.arrowKeyNavigationConfig.push({
 })
 ```
 <img src="/images/arrow_config_explaination.jpg" alt="arrow config details"/>
+
+## Persisting Focus on DOM updates
+Web applications built using moder JS frameworks refresh their DOM nodes to update the page with latest data,in that process focus is lost if active element is part of DOM update or active element gets removed in DOM update. So if the focus is lost(shifts to HTML body) user will have to re-tab all the elements to reach the current one which is frustrating. Also the references of DOM nodes gets lost if we keep track of them.  
+
+Keyboard Navigator uses XPath references to keep track and persist focus.  
+
+1)To persist focus on elements on DOM updates due to store updates(ngrx store, redux store)/template bindings, call this function inside store subscriber which is that last step before DOM updates.  
+```javascript
+keyBoardNavigator.persistFocus()
+```
+example:
+```javascript
+this.store.subscribe(data => {
+    //... your logic
+    //last statement
+    this.keyBoardNavigator.persistFocus();
+})
+```
+```javascript
+function updatePrducts(newData){
+    this.products = newData;
+    this.keyBoardNavigator.persistFocus();
+}
+```
+this function stores the Xpath of active element before DOM update, and Asynchronously focuses the same element after DOM update using the same Xpath.  
+
+
 
