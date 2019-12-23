@@ -187,6 +187,34 @@ Keyboard Navigator checks if the clicked(enter key pressed) element still exists
 2)Falback elements must exist on DOM, which is ensured by checking if DOM contains any element matching the Xpath reference.  
 <img src="/images/enter click.png" alt="clicking enter"/>
 
+Developers might add non-interactive elements to DOM and expect users to interact with them(example: using an image of delete instead of delete button).  
+In such cases pressing enter on such elements will yeild nothing, click listeners wont fire.  
+Keyboard Navigator patches this action by listening on eneter clicks and programatically click elements from script.  
+if Developer dont need any fallback focus strategy and just needs programatical clicks for non-interactive elements set:  
+```javascript
+// default useDefaultFallbackFocusLogic = true
+keyBoardNavigator.useDefaultFallbackFocusLogic = false
+// and dont set keyBoardNavigator.customFallbackFocusLogic
+```
+this will ensure to execute only programatic clicks.  
+
+Enter Listener Flow:
+```javascript
+if(event.keyCode == this.keys["enter"] && this.listenOnEnterKey){
+    if(this.useDefaultFallbackFocusLogic){
+        //default fallback focus logic gets executed
+    }
+    else if(this.customFallbackFocusLogic){
+        //your implementation gets executed
+    }
+    else{
+        //programatic click
+        event.target.click();
+    }  
+}
+```
+
+
 
 
 
