@@ -103,5 +103,10 @@ List of all Default Values is mention at the last
 ## Arrow Key Navigation
 The preferred and easy way to navigate across similar elements such as list elements,custom dropdown list,multiple similar blocks... is via arrow keys.
 <img src="/images/arrow_key_usability_areas.png" alt="Examples where arrow keys are used"/>
+In such custom implementaions navigation must be manually handled, if those components were default HTML components that navigation is by handled by default.
 
-
+Keyboard Navigator provides a strategy to navigate among such elements by comparing the coordinates of next directional element with active element.
+Arrow key navigation can be triggered from:
+1)Containing Element/Triggering Element
+2)Active Element(which is one of similar elements)
+<img src="/images/arrow_containing_or_triggering.png" alt="Examples where arrow keys are used"/>
