@@ -100,7 +100,8 @@ else if(typeof(this.customModalFocusTrapLogic) == "function"){ //if developer ha
 ```
 List of all Default Values is mention at the last
 
-
-
+## Arrow Key Navigation
+The preferred and easy way to navigate across similar elements such as list elements,custom dropdown list,multiple similar blocks... is via arrow keys.
+<img src="/images/arrow_key_usability_areas.png" alt="Examples where arrow keys are used"/>
 
 
