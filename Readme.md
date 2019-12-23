@@ -106,7 +106,7 @@ The preferred and easy way to navigate across similar elements such as list elem
 In such custom implementaions navigation must be manually handled, if those components were default HTML components that navigation is by handled by default.
 
 Keyboard Navigator provides a strategy to navigate among such elements by comparing the coordinates of next directional element with active element.
-Arrow key navigation can be triggered from:
-1)Containing Element/Triggering Element
-2)Active Element(which is one of similar elements)
+Arrow key navigation can be triggered from:  
+1)Containing Element/Triggering Element  
+2)Active Element(which is one of similar elements)  
 <img src="/images/arrow_containing_or_triggering.png" alt="Examples where arrow keys are used"/>
