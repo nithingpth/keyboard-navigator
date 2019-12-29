@@ -12,7 +12,7 @@ npm install keyboard-navigator
 For non node usage, developers can include keyboard-navigator.js from this repo into their project
 or can use the below CDN link.
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/keyboard-navigator@1.0.1/lib/keyboard-navigator.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/keyboard-navigator/lib/keyboard-navigator.js"></script>
 ```
 
 Navigation can be contained inside desired element or set it on window by calling this setNavigationOnContainingElement function.
@@ -189,7 +189,7 @@ Keyboard Navigator checks if the clicked(enter key pressed) element still exists
 
 Developers might add non-interactive elements to DOM and expect users to interact with them(example: using an image of delete instead of delete button).  
 In such cases pressing enter on such elements will yeild nothing, click listeners wont fire.  
-Keyboard Navigator patches this action by listening on eneter clicks and programatically click elements from script.  
+Keyboard Navigator patches this action by listening on enter clicks and programatically click elements from script.  
 if Developer dont need any fallback focus strategy and just needs programatical clicks for non-interactive elements set:  
 ```javascript
 // default useDefaultFallbackFocusLogic = true
