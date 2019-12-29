@@ -12,7 +12,7 @@ npm install keyboard-navigator
 For non node usage, developers can include keyboard-navigator.js from this repo into their project
 or can use the below CDN link.
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/keyboard-navigator/lib/keyboard-navigator.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/keyboard-navigator@latest/lib/keyboard-navigator.js"></script>
 ```
 
 Navigation can be contained inside desired element or set it on window by calling this setNavigationOnContainingElement function.
