@@ -15,6 +15,14 @@ or can use the below CDN link.
 <script src="https://cdn.jsdelivr.net/npm/keyboard-navigator@latest/lib/keyboard-navigator.js"></script>
 ```
 
+## Table of Contents
+- [Tabbing](#tabbing)
+- [Arrow Key Navigation](#Arrow-Key-Navigation)
+- [Persisting Focus on DOM updates](#Persisting-Focus-on-DOM-updates)
+- [List of default values](#List-of-Defaults)
+
+
+
 Navigation can be contained inside desired element or set it on window by calling this setNavigationOnContainingElement function.
 Calling also this function starts listening on target element.
 ```javascript
@@ -212,6 +220,40 @@ if(this.listenOnEnterKey){
         event.target.click();
     }  
 }
+```
+## List of Defaults
+```javascript
+this.masterNavigationElement = window
+
+this.pause = false;
+
+this.listenOnEnterKey = true;
+
+this.listenOnEscapeKey = false;
+
+this.listenOnTabKey = true;
+
+this.listOfTabbingElementsInOrder = [];
+
+this.customTabLogic = true;
+
+this.additionalCustomTabLogic = null;
+
+this.customModalFocusTrapLogic = true;
+
+this.useDefaultFallbackFocusLogic = true;
+
+this.customFallbackFocusLogic = false;
+
+this.arrowKeyNavigationConfig = [{
+    "containingOrTriggeringElementClass" : "arrowTrigger",
+    "containingOrTriggeringElementArrowKeys" : [this.keys["up"],this.keys["down"]],
+    "arrowNavigableElementClass" : "arrowNavigableElement",
+    "arrowNavigableElementArrowKeys" : [this.keys["up"],this.keys["down"],this.keys["left"],this.keys["right"]],
+    "additionalFilterOnArrowNavigableElements" : function(arr) {return arr} 
+}];
+
+this.setAutomaticTabIndexOnArrowNavigableElements = false;
 ```
 
 
