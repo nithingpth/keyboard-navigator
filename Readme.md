@@ -18,7 +18,7 @@ or can use the below CDN link.
 ## Table of Contents
 - [Tabbing](#tabbing)
 - [Arrow Key Navigation](#Arrow-Key-Navigation)
-- [Persisting Focus on DOM updates](#Persisting-Focus-on-DOM-updates)
+- [Persisting Focus on DOM updates(useful in dynamic frontend applications)](#Persisting-Focus-on-DOM-updates)
 - [List of default values](#List-of-Defaults)
 
 
