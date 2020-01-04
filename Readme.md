@@ -192,8 +192,11 @@ keyBoardNavigator.customFallbackFocusLogic = function(keyBoardNavigatorScope,eve
 ```
 **Default strategy that Keboard Navigator provides:**  
 Keyboard Navigator keeps track of fallback focus elements in a queue(first in first out) when user clicks enter key on elements.  
+
 Fallback focus elements are those elements to be focused when their child elements are being clicked(pressing enter key),resulting in removal of that child node from DOM.  
+
 Keyboard Navigator before executing click on element via script, queries and stores the Xpath of `Parent Fallback Focus Element` to the `current element` if any into a `Fallback Focus Elements queue`.  
+
 Keyboard Navigator checks if the clicked(enter key pressed) element still exists on DOM after click is executed, not by node reference but by Xpath reference, if that element doesnot exists on DOM, then it focuses the `Fallback Focus Element` that is fetched from `Fallback Focus Elements queue` which satisfy below conditions:  
 1)recently added Falback elements are given priority.  
 2)Falback elements must exist on DOM, which is ensured by checking if DOM contains any element matching the Xpath reference.  
