@@ -1,5 +1,5 @@
 # Keyboard Navigator
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=plastic)](http://badges.mit-license.org)
 
 Keyboard Navigator is a simple javascript library through which developers can implement tabbing in the web applications either by their own strategy or by utilizing that which is provided by library by configuring it to any extent.
 
