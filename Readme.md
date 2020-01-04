@@ -21,7 +21,7 @@ or can use the below CDN link.
 - [Persisting Focus on DOM updates(useful in dynamic frontend applications)](#Persisting-Focus-on-DOM-updates)
 - [List of default values](#List-of-Defaults)
 
-
+## Start Navigation
 
 Navigation can be contained inside desired element or set it on window by calling this setNavigationOnContainingElement function.
 Calling also this function starts listening on target element.
