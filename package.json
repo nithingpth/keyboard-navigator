@@ -1,6 +1,6 @@
 {
   "name": "keyboard-navigator",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A configurable javascript library for navigating through web applications using keyboard. Also works for dynamic frontend web applications where DOM updates are frequent",
   "main": "index.js",
   "scripts": {
