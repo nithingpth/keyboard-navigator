@@ -17,6 +17,18 @@ or can use the below CDN link.
 <script src="https://cdn.jsdelivr.net/npm/keyboard-navigator@latest/lib/keyboard-navigator.js"></script>
 ```
 
+angular apps can import the js file from node_modules by adding the path to scripts array in angular.json
+```javascript
+"scripts": [
+              ...
+              "node_modules/keyboard-navigator/lib/keyboard-navigator.js"
+           ]
+```
+
+
+<a href="https://stackblitz.com/edit/keyboard-navigator-example?embed=1&file=src/app/app.component.ts" target="_blank">example Angular app using keyboard-navigator</a>
+
+
 ## Table of Contents
 - [Tabbing](#tabbing)
 - [Arrow Key Navigation](#arrow-key-navigation)
