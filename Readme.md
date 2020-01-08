@@ -207,6 +207,8 @@ Keyboard Navigator keeps track of fallback focus elements in a queue(first in fi
 
 Fallback focus elements are those elements to be focused when their child elements are being clicked(pressing enter key),resulting in removal of that child node from DOM.  
 
+To register a node/element as Fallback Focus Node assign a class `navigable-fallbackFocusNode` to that node/element.  
+
 Keyboard Navigator before executing click on element via script, queries and stores the Xpath of `Parent Fallback Focus Element` to the `current element` if any into a `Fallback Focus Elements queue`.  
 
 Keyboard Navigator checks if the clicked(enter key pressed) element still exists on DOM after click is executed, not by node reference but by Xpath reference, if that element doesnot exists on DOM, then it focuses the `Fallback Focus Element` that is fetched from `Fallback Focus Elements queue` which satisfy below conditions:  
