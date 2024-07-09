@@ -26,7 +26,7 @@ angular apps can import the js file from node_modules by adding the path to scri
 ```
 
 
-<a href="https://stackblitz.com/edit/keyboard-navigator-example?embed=1&file=src/app/app.component.ts" target="_blank">example Angular app using keyboard-navigator</a>
+<a href="https://stackblitz.com/edit/keyboard-navigator?embed=1&file=src/app/app.component.ts" target="_blank">example Angular app using keyboard-navigator</a>
 
 
 ## Table of Contents
